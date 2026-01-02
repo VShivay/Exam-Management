@@ -1,0 +1,230 @@
+/* Scoped Variables */
+:root {
+  --ed-bg: #f8fafc;
+  --ed-card: #ffffff;
+  --ed-text: #334155;
+  --ed-primary: #4f46e5;
+  --ed-success: #10b981;
+  --ed-error: #ef4444;
+  --ed-pass-bg: #ecfdf5;
+  --ed-fail-bg: #fef2f2;
+}
+
+.ed-container {
+  padding: 15px;
+  background-color: var(--ed-bg);
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--ed-text);
+  box-sizing: border-box;
+}
+
+.ed-back-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--ed-text);
+  margin-bottom: 15px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.ed-back-btn:hover {
+  background: #e2e8f0;
+}
+
+.ed-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 15px;
+}
+
+/* Card General */
+.ed-card {
+  background: var(--ed-card);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+}
+
+/* Overview Card (Left) */
+.ed-overview-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Score Circle Animation */
+.ed-score-circle {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 15px;
+}
+
+.ed-circular-chart {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.ed-circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 2.5;
+}
+
+.ed-circle {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+.ed-score-circle.pass .ed-circle { stroke: var(--ed-success); }
+.ed-score-circle.fail .ed-circle { stroke: var(--ed-error); }
+
+@keyframes progress {
+  0% { stroke-dasharray: 0, 100; }
+}
+
+.ed-score-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: baseline;
+}
+
+.ed-score-val { font-size: 32px; font-weight: 800; color: #1e293b; }
+.ed-score-unit { font-size: 16px; color: #94a3b8; font-weight: 600; margin-left: 2px; }
+
+/* Status Text */
+.ed-status-text { font-size: 18px; margin: 0; font-weight: 700; }
+.ed-status-text.pass { color: var(--ed-success); }
+.ed-status-text.fail { color: var(--ed-error); }
+.ed-status-sub { font-size: 12px; color: #64748b; margin: 4px 0 20px 0; }
+
+/* Quick Stats Row inside Overview */
+.ed-quick-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.ed-q-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ed-q-stat .icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ed-q-stat .icon.correct { background: #dcfce7; color: var(--ed-success); }
+.ed-q-stat .icon.wrong { background: #fee2e2; color: var(--ed-error); }
+.ed-q-stat .icon.total { background: #e0e7ff; color: var(--ed-primary); }
+
+.ed-q-stat .text { display: flex; flex-direction: column; align-items: center; }
+.ed-q-stat .val { font-weight: 700; font-size: 14px; }
+.ed-q-stat .lbl { font-size: 10px; color: #64748b; text-transform: uppercase; }
+
+/* Info Cards (Right) */
+.ed-details-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ed-info-card {
+  padding: 0;
+}
+
+.ed-card-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border-radius: 8px 8px 0 0;
+}
+
+.ed-card-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ed-text);
+}
+
+.ed-head-icon { color: var(--ed-primary); }
+
+.ed-info-row {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.ed-info-item label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.ed-info-item p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Alert Box */
+.ed-alert {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: #9a3412;
+  font-size: 13px;
+}
+
+.ed-loading, .ed-error {
+  padding: 40px;
+  text-align: center;
+  color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .ed-grid { grid-template-columns: 1fr; }
+  .ed-info-row { grid-template-columns: 1fr; gap: 10px; }
+}

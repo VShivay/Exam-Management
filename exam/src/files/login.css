@@ -1,0 +1,81 @@
+/* Unique namespace for this page */
+.login-page-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top left, #4f46e5, #7c3aed, #2563eb);
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.login-glass-card {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    width: 360px;
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-header { text-align: center; margin-bottom: 24px; }
+.login-logo-circle {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+    color: white;
+}
+
+.login-header h2 { margin: 0; color: #1e293b; font-size: 1.5rem; }
+.login-header p { color: #64748b; font-size: 0.85rem; }
+
+.login-input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+.login-input-wrapper:focus-within {
+    border-color: #6366f1;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.input-icon { color: #94a3b8; margin-right: 10px; }
+
+.login-input-wrapper input {
+    border: none; outline: none; background: transparent;
+    width: 100%; font-size: 14px; color: #334155;
+}
+
+.login-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #4f46e5, #7c3aed);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.login-submit-btn:hover { transform: translateY(-1px); opacity: 0.95; }
+.login-submit-btn:active { transform: translateY(0); }
+
+.spinning-icon { animation: rotate 1s linear infinite; }
+@keyframes rotate { to { transform: rotate(360deg); } }

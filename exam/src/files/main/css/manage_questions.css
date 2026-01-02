@@ -1,0 +1,215 @@
+/* Unique Namespace: MQ (Manage Questions) */
+.mq-page-wrapper {
+    padding: 8px;
+    margin: 10px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    animation: mqFadeIn 0.4s ease-out;
+}
+
+/* Header & Premium Gradient Button */
+.mq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.mq-title-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mq-title-area h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mq-add-btn {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+}
+
+.mq-add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(79, 70, 229, 0.4);
+}
+
+/* Toolbar: Search & Filter */
+.mq-toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.mq-search-box, .mq-filter-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.mq-search-box { flex: 2; min-width: 200px; }
+.mq-filter-box { flex: 1; min-width: 150px; }
+
+.mq-search-icon, .mq-filter-icon {
+    position: absolute;
+    left: 8px;
+    color: #94a3b8;
+}
+
+.mq-input-search, .mq-select {
+    width: 100%;
+    padding: 6px 8px 6px 30px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.mq-input-search:focus, .mq-select:focus {
+    border-color: #6366f1;
+}
+
+/* Grid & Cards */
+.mq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 10px;
+}
+
+.mq-card {
+    background: white;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 3px solid #6366f1;
+}
+
+.mq-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.mq-card-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.mq-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.mq-badge-easy { background: #dcfce7; color: #15803d; }
+.mq-badge-medium { background: #fef9c3; color: #a16207; }
+.mq-badge-hard { background: #fee2e2; color: #b91c1c; }
+
+.mq-domain-name {
+    font-size: 11px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.mq-question-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 4px 0 10px 0;
+    line-height: 1.5;
+}
+
+/* Options Styling */
+.mq-options-list {
+    display: grid;
+    gap: 6px;
+}
+
+.mq-option-item {
+    padding: 6px 8px;
+    background: #f8fafc;
+    border-radius: 4px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid transparent;
+}
+
+.mq-opt-label { font-weight: 800; color: #94a3b8; width: 14px; }
+
+.mq-correct {
+    background: #f0fdf4;
+    border-color: #22c55e;
+    color: #166534;
+}
+
+.mq-check { margin-left: auto; color: #22c55e; }
+
+/* Pagination */
+.mq-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.mq-page-arrow {
+    background: white;
+    border: 1px solid #e2e8f0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.mq-page-arrow:hover:not(:disabled) {
+    background: #6366f1;
+    color: white;
+}
+
+@keyframes mqFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Add to manage_questions.css */
+.mq-badge-expert { 
+    background: #f3e8ff; 
+    color: #7e22ce; 
+    border: 1px solid #d8b4fe;
+}

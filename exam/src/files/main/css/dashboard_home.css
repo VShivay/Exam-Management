@@ -1,0 +1,248 @@
+/* dashboard_home.css */
+
+/* SCOPE: Strictly scoped to the DashboardHome component */
+.dashboard-home {
+  padding: 8px; /* Global layout padding constraint */
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', -apple-system, sans-serif;
+  animation: dashFadeIn 0.4s ease-out;
+}
+
+/* ========================================
+  WELCOME BANNER 
+  ========================================
+*/
+.dashboard-home .welcome-banner {
+  background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%); /* Vibrant Indigo-Purple */
+  color: white;
+  padding: 24px 20px;
+  border-radius: 6px; /* Recommended radius */
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.25);
+  margin-bottom: 12px; /* Section spacing */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background decoration circle */
+.dashboard-home .welcome-banner::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.dashboard-home .welcome-banner h1 {
+  margin: 0 0 4px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.dashboard-home .welcome-banner p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashboard-home .status-online {
+  color: #86efac; /* Bright Green */
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ========================================
+  PROFILE OVERVIEW CARD
+  ========================================
+*/
+.dashboard-home .profile-overview-card {
+  background: white;
+  border-radius: 6px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Card shadow constraint */
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+/* Header Section: Avatar + Name */
+.dashboard-home .profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 20px;
+}
+
+.dashboard-home .avatar-large {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #06b6d4); /* Blue to Cyan */
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+  border: 2px solid white;
+}
+
+.dashboard-home .profile-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dashboard-home .profile-titles h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.dashboard-home .role-badge {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #4f46e5;
+  background: #eef2ff;
+  padding: 4px 8px;
+  border-radius: 4px; /* Small radius constraint */
+}
+
+/* Grid for Details */
+.dashboard-home .profile-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px; /* Grid gap constraint */
+}
+
+.dashboard-home .detail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 6px;
+  background: #f8fafc;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.dashboard-home .detail-item:hover {
+  background: white;
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transform: translateY(-2px);
+}
+
+/* Icons inside grid */
+.dashboard-home .detail-item svg {
+  color: #64748b;
+  background: white;
+  padding: 8px;
+  box-sizing: content-box; /* Ensures padding adds to size */
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  transition: color 0.2s;
+}
+
+.dashboard-home .detail-item:hover svg {
+  color: #4f46e5;
+  border-color: #c7d2fe;
+}
+
+.dashboard-home .detail-item label {
+  display: block;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+.dashboard-home .detail-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #334155;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========================================
+  LOADING STATE
+  ========================================
+*/
+.dashboard-home .loading-screen {
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-weight: 500;
+  font-size: 1rem;
+  animation: pulseText 1.5s infinite;
+}
+
+/* ========================================
+  ANIMATIONS
+  ========================================
+*/
+@keyframes dashFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseText {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+  .dashboard-home .welcome-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .dashboard-home .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .dashboard-home .role-badge {
+    align-self: center;
+  }
+  
+  .dashboard-home .profile-details-grid {
+    grid-template-columns: 1fr;
+  }
+}

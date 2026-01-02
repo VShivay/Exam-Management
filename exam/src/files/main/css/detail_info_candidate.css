@@ -1,0 +1,262 @@
+/* detail_info_candidate.css */
+
+/* SCOPE: Strictly scoped to CandidateDetail component */
+.detail-page {
+  padding: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #1e293b;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* ============================
+   BACK BUTTON
+   ============================ */
+.detail-page .back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.detail-page .back-btn:hover {
+  background: #f8fafc;
+  color: #1e293b;
+  border-color: #94a3b8;
+  transform: translateX(-2px);
+}
+
+/* ============================
+   GRID LAYOUT
+   ============================ */
+.detail-page .profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px; /* Grid gap constraint */
+  align-items: start; /* Prevents cards from stretching to match height unnecessarily */
+}
+
+/* ============================
+   CARDS COMMON STYLES
+   ============================ */
+.detail-page .info-card {
+  background: white;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.detail-page .info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Card Header */
+.detail-page .card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.detail-page .card-header svg {
+  padding: 6px;
+  border-radius: 6px;
+  box-sizing: content-box;
+}
+
+/* ============================
+   SPECIFIC CARD ACCENTS
+   ============================ */
+
+/* 1. Personal Info (Blue) */
+.detail-page .info-card.personal {
+  border-top: 4px solid #3b82f6;
+}
+.detail-page .info-card.personal .card-header svg {
+  background: #eff6ff;
+  color: #3b82f6;
+}
+
+/* 2. Academic (Purple) */
+.detail-page .info-card.academic {
+  border-top: 4px solid #8b5cf6;
+  animation-delay: 0.1s; /* Staggered animation */
+}
+.detail-page .info-card.academic .card-header svg {
+  background: #f5f3ff;
+  color: #8b5cf6;
+}
+
+/* 3. Exams (Amber/Green) */
+.detail-page .info-card.exams {
+  border-top: 4px solid #f59e0b;
+  animation-delay: 0.2s; /* Staggered animation */
+}
+.detail-page .info-card.exams .card-header svg {
+  background: #fffbeb;
+  color: #f59e0b;
+}
+
+/* ============================
+   CONTENT STYLING
+   ============================ */
+
+/* Personal Info Rows */
+.detail-page .info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #f1f5f9;
+  font-size: 0.9rem;
+}
+
+.detail-page .info-row:last-child {
+  border-bottom: none;
+}
+
+.detail-page .info-row span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.detail-page .info-row strong {
+  color: #1e293b;
+  text-align: right;
+}
+
+/* Academic Items */
+.detail-page .edu-item {
+  background: #f8fafc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-left: 3px solid #cbd5e1;
+}
+
+.detail-page .edu-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #1e293b;
+  margin-bottom: 2px;
+}
+
+.detail-page .edu-item p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* Exam Items */
+.detail-page .exam-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+
+.detail-page .exam-item:hover {
+  background: #f8fafc;
+}
+
+.detail-page .status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Dynamic Status Colors */
+.detail-page .status-dot.Passed {
+  background-color: #10b981; /* Green */
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.detail-page .status-dot.Failed {
+  background-color: #ef4444; /* Red */
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.detail-page .status-dot.Pending {
+  background-color: #f59e0b; /* Amber */
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.detail-page .exam-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+.detail-page .exam-item p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Loader */
+.detail-page .loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: #64748b;
+  font-weight: 500;
+  animation: pulse 1.5s infinite;
+}
+
+/* ============================
+   ANIMATIONS
+   ============================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+  .detail-page .profile-grid {
+    grid-template-columns: 1fr; /* Stack single column */
+  }
+}
