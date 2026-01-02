@@ -5,7 +5,7 @@ require('dotenv').config();
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     // Add SSL if connecting to cloud DB: 
-    //ssl: { rejectUnauthorized: false }
+    ssl: { rejectUnauthorized: false }
 });
 
 // Verify connection ONCE at startup
